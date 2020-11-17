@@ -15,3 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/hello','ExampleController@hello')->name('example.hello');
+Route::get('/gioithieubanthan','ExampleController@gioithieu');
