@@ -6,6 +6,8 @@
     <title>Xin chào</title>
 </head>
 <body>
-    
+    <div style="background-color: #dae8fc; text-align: center;">
+        <h1>Chào mừng đến với ví dụ 1</h1>
+    </div>
 </body>
 </html>
