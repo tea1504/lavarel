@@ -21,6 +21,6 @@ class ExampleController extends Controller
     public function php(){
         $ver = "7.4";
         return view('example.hocphp')
-        -> with('ver', $ver);
+            -> with('ver', $ver);
     }
 }
