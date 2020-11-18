@@ -17,3 +17,5 @@ Route::get('/', function () {
 Route::get('/hello','ExampleController@hello')->name('example.hello');
 Route::get('/gioithieubanthan','ExampleController@gioithieu');
 Route::get('/hoc/php', 'ExampleController@php');
+Route::get('/hienthi','ExampleController@hienthi');
+Route::get('/dangnhap','ExampleController@dangnhap');
