@@ -18,4 +18,9 @@ class ExampleController extends Controller
             ->with('gioitinh', $sex)
             ->with('ngaysinh', $dob);
     }
+    public function php(){
+        $ver = "7.4";
+        return view('example.hocphp')
+        -> with('ver', $ver);
+    }
 }
