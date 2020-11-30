@@ -33,6 +33,7 @@ class CreateCuscSanphamTable extends Migration
                 ->onDelete('CASCADE')
                 ->onUpdate('CASCADE');
         });
+        DB::statement("ALTER TABLE `cusc_sanpham`");
     }
 
     /**
