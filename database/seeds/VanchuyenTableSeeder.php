@@ -13,15 +13,17 @@ class VanchuyenTableSeeder extends Seeder
     {
         $list = [];
         $faker    = Faker\Factory::create('vi_VN');
-        $types = [];
+        $types = ['Miễn phí','Thường', 'Giao nhanh', '24h'];
+        date_default_timezone_set("Asia/Ho_Chi_Minh");
+        $today = new DateTime();
         for($i=1; $i<=count($types); $i++){
             array_push($list,[
                 'vc_ma' => $i,
                 'vc_ten' => $types[$i-1],
-                'vc_chiphi' => $i,
-                'vc_diengiai' => $i,
-                'vc_taomoi' => $i,
-                'vc_capnhat' => $i,
+                'vc_chiphi' => $faker->randomFloat(0, 30, 100)*1000,
+                'vc_diengiai' => '',
+                'vc_taomoi' => $today,
+                'vc_capnhat' => $today,
                 'vc_trangthai' => 2
             ]);
         }

@@ -114,7 +114,7 @@ class KhachhangTableSeeder extends Seeder
             'kh_taikhoan'  => 'Admin',
             'kh_matkhau'   => '12345',
             'kh_hoten'     => 'Trần Văn Hòa',
-            'kh_gioitinh'  => $gender == VnBase::VnMale,
+            'kh_gioitinh'  => '1',
             'kh_email'     => 'admin@nentang.vn',
             'kh_ngaysinh'  => '2000-04-15',
             'kh_diachi'    => 'Cần Thơ',

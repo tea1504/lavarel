@@ -16,7 +16,7 @@ class SanPhamTableSeeder extends Seeder
         for($i=1; $i<=30; $i++){
             $today = new DateTime();
             array_push($list, [
-                'sp_ten'                    =>  "sp_ten $i",
+                'sp_ten'                    =>  "Sản phẩm $i",
                 'sp_giaGoc'                 => $faker->randomFloat(2000000, 50000, 1999999),
                 'sp_giaBan'                 => $i,
                 'sp_hinh'                   => "hoa-$i.jpg",
