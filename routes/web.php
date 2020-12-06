@@ -19,3 +19,6 @@ Route::get('/gioithieubanthan','ExampleController@gioithieu');
 Route::get('/hoc/php', 'ExampleController@php');
 Route::get('/hienthi','ExampleController@hienthi');
 Route::get('/dangnhap','ExampleController@dangnhap');
+Route::get('/test/Loai','LayDuLieuController@getLoai');
+Route::get('/test/VanChuyen','LayDuLieuController@getVanChuyen');
+Route::get('/test/SanPham','LayDuLieuController@getSanPham');
