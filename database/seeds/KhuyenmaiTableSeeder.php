@@ -19,6 +19,7 @@ class KhuyenmaiTableSeeder extends Seeder
             $date = $faker->dateTimeBetween('-1 years','-6 months','Asia/Ho_Chi_Minh');
             $date2 = $faker->dateTimeBetween('-1 years',$date,'Asia/Ho_Chi_Minh');
             array_push($list, [
+                'km_ma'                   => $i,
                 'km_ten'                  => "km_ten $i",
                 'km_noiDung'              => $faker->realText(100, 1),
                 'km_batDau'               => $date,
