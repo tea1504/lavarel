@@ -8,31 +8,31 @@ Danh sách loại sản phẩm
         {{ Session::get('alert-success') }}
     </div>
     @endif
-    <a class="btn btn-primary" href="{{route('backend.loai.create')}}">Thêm</a>
-    <table class="table table-hover">
-        <thead class="thead-dark">
+    <a class="btn btn-primary my-5" href="{{route('backend.loai.create')}}">Thêm</a>
+    <table class="table table-hover shadow-lg table-striped">
+        <thead class="thead-light">
             <tr>
-                <td scope="col">Mã</td>
-                <td scope="col">Tên</td>
-                <td scope="col">Trạng thái</td>
-                <td scope="col">Hành động</td>
+                <th scope="col">Mã</th>
+                <th scope="col">Tên</th>
+                <th scope="col">Trạng thái</th>
+                <th scope="col">Hành động</th>
             </tr>
         </thead>
         <tbody>
         @foreach($dsLoai as $loai)
             <tr>
-                <td>{{$loai->l_ma}}</td>
-                <td>{{$loai->l_ten}}</td>
-                <td>
+                <td scope="row" class="align-middle">{{$loai->l_ma}}</td>
+                <td class="align-middle">{{$loai->l_ten}}</td>
+                <td class="align-middle">
                     @if($loai->l_trangthai == 1)
                         Khóa
                     @else 
                         Khả dụng
                     @endif
                 </td>
-                <td>
+                <td class="align-middle">
                     <a href="{{ route('backend.loai.destroy', ['id' => $loai->l_ma]) }}" class="btn btn-success">Sửa</a>
-                    <form class="fDelete" method="POST" action="{{ route('backend.loai.destroy', ['id' => $loai->l_ma]) }}" data-id="{{ $loai->l_ma }}">
+                    <form class="fDelete btn p-0" method="POST" action="{{ route('backend.loai.destroy', ['id' => $loai->l_ma]) }}" data-id="{{ $loai->l_ma }}">
                         {{ csrf_field() }}
                         <input type="hidden" name="_method" value="DELETE"/>
                         <button class="btn btn-danger">Xóa</button>
