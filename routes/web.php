@@ -28,4 +28,9 @@ Route::get('/test/ChucNangBackend',function(){
 Route::get('admin/loai', 'Backend\LoaiController@index')->name('backend.loai.index');
 
 Route::get('admin/loai/create', 'Backend\LoaiController@create')->name('backend.loai.create');
-Route::post('admin/loai/create', 'Backend\LoaiController@store')->name('backend.loai.store');
+Route::post('admin/loai/store', 'Backend\LoaiController@store')->name('backend.loai.store');
+Route::get('admin/loai/edit/{id}', 'Backend\LoaiController@edit')->name('backend.loai.edit');
+Route::put('admin/loai/update/{id}', 'Backend\LoaiController@update')->name('backend.loai.update');
+Route::delete('admin/loai/destroy/{id}', 'Backend\LoaiController@destroy')->name('backend.loai.destroy');
+
+Route::get('admin/sanpham', 'Backend\SanPhamController@index')->name('backend.sanpham.index');

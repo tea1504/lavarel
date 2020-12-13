@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="vn">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -31,6 +31,7 @@
                     <h1 class="h2">@yield('feature-title')</h1>
                     <small>@yield('feature-description')</small>
                 </div>
+                @include('backend.layouts.partials.error-message')
                 @yield('content')
             </main>
             <!-- End content -->
@@ -43,6 +44,7 @@
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/popperjs/popper.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('vendor/sweetalert/sweetalert.js') }}"></script>
 
     <!-- Các custom script dành riêng cho từng view -->
     @yield('custom-scripts')
