@@ -7,6 +7,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('vendor/font-awesome/css/font-awesome.css') }}">
 
     <title>Sunshine | @yield('title')</title>
 
@@ -45,7 +46,6 @@
     <script src="{{ asset('vendor/popperjs/popper.min.js') }}"></script>
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/sweetalert/sweetalert.js') }}"></script>
-
     <!-- Các custom script dành riêng cho từng view -->
     @yield('custom-scripts')
   </body>

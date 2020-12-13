@@ -8,6 +8,7 @@ use App\Loai;
 use Carbon\Carbon;
 use Validator;
 use App\Http\Requests\LoaiCreateRequest;
+use App\Http\Requests\LoaiUpdateRequest;
 use Session;
 
 class LoaiController extends Controller
@@ -85,7 +86,7 @@ class LoaiController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(LoaiCreateRequest $request, $id)
+    public function update(LoaiUpdateRequest $request, $id)
     {
         $loai = Loai::find($id);
         $loai->l_ten = $request->l_ten;
