@@ -8,7 +8,10 @@
                 </a>
             </li>
             <li class="nav-item">
-                <a href="{{route('backend.loai.index')}}">Loai</a>
+                <a href="{{route('backend.loai.index')}}">Loại</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('backend.vanchuyen.index')}}">Vận chuyển</a>
             </li>
         </ul>
     </div>
