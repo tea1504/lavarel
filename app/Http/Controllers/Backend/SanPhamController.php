@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\SanPham;
+use App\Loai;
 
 class SanPhamController extends Controller
 {
@@ -27,7 +28,9 @@ class SanPhamController extends Controller
      */
     public function create()
     {
-        //
+        $ds_loai = Loai::all();
+        return view('backend.sanpham.create')
+            ->with('ds_loai', $ds_loai);
     }
 
     /**
