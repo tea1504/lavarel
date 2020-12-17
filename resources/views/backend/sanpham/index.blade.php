@@ -40,7 +40,7 @@ Danh sách sản phẩm
             <td class="align-middle">{{$sanpham->sp_ten}}</td>
             <td class="align-middle text-right">{{number_format ($sanpham->sp_giaGoc,0,'.',',')}}</td>
             <td class="align-middle text-right">{{number_format ($sanpham->sp_giaBan,0,'.',',')}}</td>
-            <td class="align-middle"></td>
+            <td class="align-middle"><img src="{{ asset('storage/photos/' . $sanpham->sp_hinh) }}" width="100px" alt="{{$sanpham->sp_hinh}}"/></td>
             <td class="align-middle">{{$sanpham->sp_thongTin}}</td>
             <td class="align-middle">{{$sanpham->sp_danhGia}}</td>
             <td class="align-middle">{{$sanpham->loaiSanPham->l_ten}}</td>
