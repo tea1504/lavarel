@@ -15,7 +15,7 @@ Danh sách sản phẩm
     {{ Session::get('alert-success') }}
 </div>
 @endif
-<a class="btn btn-primary my-5" href="{{route('sanpham.create')}}">Thêm</a>
+<a class="btn btn-primary my-5" href="{{route('backend.sanpham.create')}}">Thêm</a>
 <table class="table table-hover shadow-lg table-striped">
     <thead class="thead-light">
         <tr>
@@ -47,15 +47,15 @@ Danh sách sản phẩm
             <td class="align-middle">{{$sanpham->sp_taoMoi->format('d/m/Y')}}</td>
             <td class="align-middle">{{$sanpham->sp_capNhat->format('d/m/Y')}}</td>
             <td class="align-middle">
-                @if($sanpham->sp_trangthai == 1)
+                @if($sanpham->sp_trangThai == 1)
                 <span class="badge badge-danger">Khóa</span>
                 @else
                 <span class="badge badge-success">Khả dụng</span>
                 @endif
             </td>
             <td class="align-middle">
-                <a href="{{ route('sanpham.edit', ['sanpham' =>$sanpham->sp_ma]) }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                <form class="fDelete btn p-0" method="POST" action="{{ route('sanpham.destroy', ['sanpham' =>$sanpham->sp_ma]) }}" data-id="{{$sanpham->sp_ma }}">
+                <a href="{{ route('backend.sanpham.edit', ['sanpham' =>$sanpham->sp_ma]) }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                <form class="fDelete btn p-0" method="POST" action="{{ route('backend.sanpham.destroy', ['id' =>$sanpham->sp_ma]) }}" data-id="{{$sanpham->sp_ma }}">
                     {{ csrf_field() }}
                     <input type="hidden" name="_method" value="DELETE" />
                     <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Xóa"><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -93,7 +93,7 @@ Danh sách sản phẩm
                             _method: $(this).find('[name="_method"]').val()
                         },
                         success: function(data, textStatus, jqXHR) {
-                            location.href = "{{ route('backend.loai.index') }}";
+                            location.href = "{{ route('backend.sanpham.index') }}";
                         }
                     })
                 } else {

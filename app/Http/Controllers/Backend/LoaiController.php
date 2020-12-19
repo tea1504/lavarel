@@ -112,7 +112,6 @@ class LoaiController extends Controller
         $loai->delete();
 
         Session::flash('alert-success','Đã xóa thành công');
-
         return redirect(route('backend.loai.index'));
     }
 }

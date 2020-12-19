@@ -40,4 +40,4 @@ Route::get('admin/vanchuyen/edit/{id}', 'Backend\VanChuyenController@edit')->nam
 Route::put('admin/vanchuyen/update/{id}', 'Backend\VanChuyenController@update')->name('backend.vanchuyen.update');
 Route::delete('admin/vanchuyen/destroy/{id}', 'Backend\VanChuyenController@destroy')->name('backend.vanchuyen.destroy');
 
-Route::resource('/admin/sanpham', 'Backend\SanPhamController');
+Route::resource('/admin/sanpham', 'Backend\SanPhamController', ['as' => 'backend']);
