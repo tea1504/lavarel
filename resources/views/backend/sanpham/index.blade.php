@@ -4,7 +4,7 @@ Danh sách sản phẩm
 @endsection
 @section('custom-css')
 <style>
-    table{
+    table {
         font-size: .8em;
     }
 </style>
@@ -40,7 +40,7 @@ Danh sách sản phẩm
             <td class="align-middle">{{$sanpham->sp_ten}}</td>
             <td class="align-middle text-right">{{number_format ($sanpham->sp_giaGoc,0,'.',',')}}</td>
             <td class="align-middle text-right">{{number_format ($sanpham->sp_giaBan,0,'.',',')}}</td>
-            <td class="align-middle"><img src="{{ asset('storage/photos/' . $sanpham->sp_hinh) }}" width="100px" alt="{{$sanpham->sp_hinh}}"/></td>
+            <td class="align-middle"><img src="{{ asset('storage/photos/' . $sanpham->sp_hinh) }}" width="100px" alt="{{$sanpham->sp_hinh}}" /></td>
             <td class="align-middle">{{$sanpham->sp_thongTin}}</td>
             <td class="align-middle">{{$sanpham->sp_danhGia}}</td>
             <td class="align-middle">{{$sanpham->loaiSanPham->l_ten}}</td>
@@ -93,6 +93,9 @@ Danh sách sản phẩm
                             _method: $(this).find('[name="_method"]').val()
                         },
                         success: function(data, textStatus, jqXHR) {
+                            Swal.fire(
+                                'Đã xóa thành công.'
+                            )
                             location.href = "{{ route('backend.sanpham.index') }}";
                         }
                     })

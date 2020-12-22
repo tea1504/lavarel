@@ -53,13 +53,14 @@ Thêm mới sản phẩm
                 <label for="sp_danhGia">Đánh giá</label>
                 <input type="text" class="form-control" id="sp_danhGia" name="sp_danhGia" value="{{ old('sp_danhGia') }}">
             </div>
+            <label>Trạng thái</label>
             <select name="sp_trangThai" class="form-control">
                 <option value="1" {{ old('sp_trangThai') == 1 ? "selected" : "" }}>Khóa</option>
                 <option value="2" {{ old('sp_trangThai') == 2 ? "selected" : "" }}>Khả dụng</option>
             </select>
-            <div class="form-group">
+            <div class="form-group mt-3">
+                <label>Hình ảnh liên quan sản phẩm</label>
                 <div class="file-loading">
-                    <label>Hình ảnh liên quan sản phẩm</label>
                     <input id="sp_hinhanhlienquan" type="file" name="sp_hinhanhlienquan[]" multiple>
                 </div>
             </div>
