@@ -12,6 +12,8 @@ use App\Http\Requests\SanPhamCreateRequest;
 use App\Http\Requests\SanPhamUpdateRequest;
 use Session;
 use Storage;
+use App\Exports\SanPhamExport;
+use Maatwebsite\Excel\Facades\Excel as Excel;
 
 class SanPhamController extends Controller
 {
@@ -169,5 +171,31 @@ class SanPhamController extends Controller
 
         Session::flash('alert-success', 'Xóa sản phẩm thành công');
         return redirect()->route('backend.sanpham.index');
+    }
+
+    public function print()
+    {
+        $ds_sanpham = Sanpham::all();
+        $ds_loai    = Loai::all();
+
+        return view('backend.sanpham.print')
+            ->with('danhsachsanpham', $ds_sanpham)
+            ->with('danhsachloai', $ds_loai);
+    }
+    /**
+     * Action xuất Excel
+     */
+    public function excel()
+    {
+        /* Code dành cho việc debug
+            - Khi debug cần hiển thị view để xem trước khi Export Excel
+        */
+        // $ds_sanpham = Sanpham::all();
+        // $ds_loai    = Loai::all();
+        // return view('backend.sanpham.excel')
+        //     ->with('danhsachsanpham', $ds_sanpham)
+        //     ->with('danhsachloai', $ds_loai);
+
+        return Excel::download(new SanPhamExport, 'danhsachsanpham.xlsx');
     }
 }

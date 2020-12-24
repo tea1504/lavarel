@@ -114,4 +114,10 @@ class LoaiController extends Controller
         Session::flash('alert-success','Đã xóa thành công');
         return redirect(route('backend.loai.index'));
     }
+
+    public function print(){
+        $ds_loai = Loai::all();
+        return view('backend.loai.print')
+            -> with('ds_loai', $ds_loai);
+    }
 }

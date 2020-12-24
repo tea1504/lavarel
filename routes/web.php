@@ -32,6 +32,7 @@ Route::post('admin/loai/store', 'Backend\LoaiController@store')->name('backend.l
 Route::get('admin/loai/edit/{id}', 'Backend\LoaiController@edit')->name('backend.loai.edit');
 Route::put('admin/loai/update/{id}', 'Backend\LoaiController@update')->name('backend.loai.update');
 Route::delete('admin/loai/destroy/{id}', 'Backend\LoaiController@destroy')->name('backend.loai.destroy');
+Route::get('admin/loai/print', 'Backend\LoaiController@print')->name('backend.loai.print');
 
 Route::get('admin/vanchuyen', 'Backend\VanChuyenController@index')->name('backend.vanchuyen.index');
 Route::get('admin/vanchuyen/create', 'Backend\VanChuyenController@create')->name('backend.vanchuyen.create');
@@ -40,4 +41,7 @@ Route::get('admin/vanchuyen/edit/{id}', 'Backend\VanChuyenController@edit')->nam
 Route::put('admin/vanchuyen/update/{id}', 'Backend\VanChuyenController@update')->name('backend.vanchuyen.update');
 Route::delete('admin/vanchuyen/destroy/{id}', 'Backend\VanChuyenController@destroy')->name('backend.vanchuyen.destroy');
 
+Route::get('/admin/sanpham/print', 'Backend\SanPhamController@print')->name('backend.sanpham.print');
+Route::get('/admin/sanpham/excel', 'Backend\SanPhamController@excel')->name('backend.sanpham.excel');
 Route::resource('/admin/sanpham', 'Backend\SanPhamController', ['as' => 'backend']);
+

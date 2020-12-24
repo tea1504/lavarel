@@ -16,6 +16,8 @@ Danh sách sản phẩm
 </div>
 @endif
 <a class="btn btn-primary my-5" href="{{route('backend.sanpham.create')}}">Thêm</a>
+<a href="{{ route('backend.sanpham.print') }}" class="btn btn-primary">In ấn</a>
+<a href="{{ route('backend.sanpham.excel') }}" class="btn btn-primary">Xuất Excel</a>
 <table class="table table-hover shadow-lg table-striped">
     <thead class="thead-light">
         <tr>
