@@ -8,7 +8,12 @@ Danh sách loại sản phẩm
     {{ Session::get('alert-success') }}
 </div>
 @endif
-<a class="btn btn-primary my-5" href="{{route('backend.loai.create')}}">Thêm</a>
+<div class="btn-group my-5 text-center" role="group" aria-label="Basic example">
+    <a class="btn btn-primary" href="{{route('backend.loai.create')}}">Thêm</a>
+    <a href="{{ route('backend.loai.print') }}" class="btn btn-primary">In ấn</a>
+    <a href="{{ route('backend.loai.excel') }}" class="btn btn-primary">Xuất Excel</a>
+    <a href="{{ route('backend.loai.pdf') }}" class="btn btn-primary">Xuất PDF</a>
+</div>
 <table class="table table-hover shadow-lg table-striped">
     <thead class="thead-light">
         <tr>
@@ -33,10 +38,10 @@ Danh sách loại sản phẩm
                 @endif
             </td>
             <td class="align-middle">
-                {{ $loai->l_taomoi->format('d/m/yy') }}
+                {{ $loai->l_taomoi->format('d/m/Y') }}
             </td>
             <td class="align-middle">
-                {{ $loai->l_capnhat->format('d/m/yy') }}
+                {{ $loai->l_capnhat->format('d/m/Y') }}
             </td>
             <td class="align-middle">
                 <a href="{{ route('backend.loai.edit', ['id' => $loai->l_ma]) }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-pencil" aria-hidden="true"></i></a>

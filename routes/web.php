@@ -33,15 +33,20 @@ Route::get('admin/loai/edit/{id}', 'Backend\LoaiController@edit')->name('backend
 Route::put('admin/loai/update/{id}', 'Backend\LoaiController@update')->name('backend.loai.update');
 Route::delete('admin/loai/destroy/{id}', 'Backend\LoaiController@destroy')->name('backend.loai.destroy');
 Route::get('admin/loai/print', 'Backend\LoaiController@print')->name('backend.loai.print');
+Route::get('/admin/loai/excel', 'Backend\LoaiController@excel')->name('backend.loai.excel');
+Route::get('/admin/loai/pdf', 'Backend\LoaiController@pdf')->name('backend.loai.pdf');
 
-Route::get('admin/vanchuyen', 'Backend\VanChuyenController@index')->name('backend.vanchuyen.index');
-Route::get('admin/vanchuyen/create', 'Backend\VanChuyenController@create')->name('backend.vanchuyen.create');
-Route::post('admin/vanchuyen/store', 'Backend\VanChuyenController@store')->name('backend.vanchuyen.store');
-Route::get('admin/vanchuyen/edit/{id}', 'Backend\VanChuyenController@edit')->name('backend.vanchuyen.edit');
-Route::put('admin/vanchuyen/update/{id}', 'Backend\VanChuyenController@update')->name('backend.vanchuyen.update');
-Route::delete('admin/vanchuyen/destroy/{id}', 'Backend\VanChuyenController@destroy')->name('backend.vanchuyen.destroy');
+Route::resource('/admin/vanchuyen', 'Backend\VanChuyenController', ['as' => 'backend']);
 
+Route::get('/admin/danhsachsanpham/pdf', 'Backend\SanPhamController@pdf')->name('backend.sanpham.pdf');
 Route::get('/admin/sanpham/print', 'Backend\SanPhamController@print')->name('backend.sanpham.print');
 Route::get('/admin/sanpham/excel', 'Backend\SanPhamController@excel')->name('backend.sanpham.excel');
 Route::resource('/admin/sanpham', 'Backend\SanPhamController', ['as' => 'backend']);
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/laymatkhau', function(){
+    return bcrypt("1");
+});

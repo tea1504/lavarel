@@ -10,6 +10,9 @@ use Validator;
 use App\Http\Requests\LoaiCreateRequest;
 use App\Http\Requests\LoaiUpdateRequest;
 use Session;
+use App\Exports\LoaiExport;
+use Maatwebsite\Excel\Facades\Excel as Excel;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class LoaiController extends Controller
 {
@@ -119,5 +122,37 @@ class LoaiController extends Controller
         $ds_loai = Loai::all();
         return view('backend.loai.print')
             -> with('ds_loai', $ds_loai);
+    }
+    /**
+     * Action xuất Excel
+     */
+    public function excel()
+    {
+        /* Code dành cho việc debug
+            - Khi debug cần hiển thị view để xem trước khi Export Excel
+        */
+        // $ds_sanpham = Sanpham::all();
+        // $ds_loai    = Loai::all();
+        // return view('backend.sanpham.excel')
+        //     ->with('danhsachsanpham', $ds_sanpham)
+        //     ->with('danhsachloai', $ds_loai);
+
+        return Excel::download(new LoaiExport, 'danhsachloaisanpham.xlsx');
+    }
+    public function pdf()
+    {
+        $ds_loai    = Loai::all();
+        $data = [
+            'dsloai'    => $ds_loai,
+        ];
+
+        /* Code dành cho việc debug
+    - Khi debug cần hiển thị view để xem trước khi Export PDF
+    */
+        // return view('backend.loai.pdf')
+        //     ->with('dsloai', $ds_loai);
+
+        $pdf = PDF::loadView('backend.loai.pdf', $data);
+        return $pdf->download('DanhMucLoaiSanPham.pdf');
     }
 }

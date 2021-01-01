@@ -5,7 +5,7 @@ Tạo mới phương thức vận chuyển
 @section('content')
 <div class="card shadow-lg">
     <div class="card-header">
-        <h1>Thêm mới phương thức vận chuyển</h1>
+        <h1>Thêm mới phương thức vận chuyển</span></h1>
     </div>
     <div class="card-body">
         <form name="fCreate" id="fCreate" action="{{route('backend.vanchuyen.store')}}" method="post">

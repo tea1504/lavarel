@@ -74,7 +74,9 @@ class VanChuyenController extends Controller
      */
     public function edit($id)
     {
-        //
+        $vanchuyen = VanChuyen::find($id);
+        return view('backend.vanchuyen.edit')
+            ->with('vanchuyen',$vanchuyen);
     }
 
     /**
@@ -86,7 +88,17 @@ class VanChuyenController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $vanchuyen = VanChuyen::find($id);
+        $vanchuyen->vc_ten = $request->vc_ten;
+        $vanchuyen->vc_chiphi = $request->vc_chiphi;
+        $vanchuyen->vc_diengiai = $request->vc_diengiai;
+        $vanchuyen->vc_capnhat = Carbon::now();
+        $vanchuyen->vc_trangthai = $request->vc_trangthai;
+        $vanchuyen->save();
+
+        Session::flash('alert-success','Đã cập nhật thành công');
+
+        return redirect(route('backend.vanchuyen.index'));
     }
 
     /**
@@ -97,6 +109,8 @@ class VanChuyenController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $vanchuyen = VanChuyen::find($id);
+        $vanchuyen->delete();
+        return redirect(route('backend.vanchuyen.index'));
     }
 }

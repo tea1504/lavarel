@@ -18,7 +18,7 @@ class CreateCuscNhanVienTable extends Migration
             
             $table->unsignedTinyInteger('nv_ma')->autoIncrement();
             $table->string('nv_taikhoan', 50);
-            $table->string('nv_matkhau', 32);
+            $table->string('nv_matkhau', 100);
             $table->string('nv_hoten', 100);
             $table->unsignedTinyInteger('nv_gioitinh')->default('1');
             $table->string('nv_email', 100);

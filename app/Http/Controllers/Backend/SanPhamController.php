@@ -14,6 +14,7 @@ use Session;
 use Storage;
 use App\Exports\SanPhamExport;
 use Maatwebsite\Excel\Facades\Excel as Excel;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class SanPhamController extends Controller
 {
@@ -197,5 +198,28 @@ class SanPhamController extends Controller
         //     ->with('danhsachloai', $ds_loai);
 
         return Excel::download(new SanPhamExport, 'danhsachsanpham.xlsx');
+    }
+
+    /**
+     * Action xuất PDF
+     */
+    public function pdf()
+    {
+        $ds_sanpham = Sanpham::all();
+        $ds_loai    = Loai::all();
+        $data = [
+            'danhsachsanpham' => $ds_sanpham,
+            'danhsachloai'    => $ds_loai,
+        ];
+
+        /* Code dành cho việc debug
+    - Khi debug cần hiển thị view để xem trước khi Export PDF
+    */
+        // return view('backend.sanpham.pdf')
+        //     ->with('danhsachsanpham', $ds_sanpham)
+        //     ->with('danhsachloai', $ds_loai);
+
+        $pdf = PDF::loadView('backend.sanpham.pdf', $data);
+        return $pdf->download('DanhMucSanPham.pdf');
     }
 }

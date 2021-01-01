@@ -5,7 +5,7 @@ Tạo mới loại sản phẩm
 @section('content')
 <div class="card shadow-lg">
     <div class="card-header">
-        <h1>Chỉnh sửa loại sản phẩm</h1>
+        <h1>Thêm mới loại sản phẩm</h1>
     </div>
     <div class="card-body">
         <form name="fCreate" id="fCreate" action="{{route('backend.loai.store')}}" method="post">

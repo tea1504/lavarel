@@ -8,12 +8,18 @@ Danh sách phương thức vận chuyển
     {{ Session::get('alert-success') }}
 </div>
 @endif
-<a class="btn btn-primary my-5" href="{{route('backend.vanchuyen.create')}}">Thêm</a>
+<div class="btn-group my-5 text-center" role="group" aria-label="Basic example">
+    <a class="btn btn-primary" href="{{route('backend.vanchuyen.create')}}">Thêm</a>
+    <a href="{{ route('backend.sanpham.print') }}" class="btn btn-primary">In ấn</a>
+    <a href="{{ route('backend.sanpham.excel') }}" class="btn btn-primary">Xuất Excel</a>
+    <a href="{{ route('backend.sanpham.pdf') }}" class="btn btn-primary">Xuất PDF</a>
+</div>
 <table class="table table-hover shadow-lg table-striped">
     <thead class="thead-light">
         <tr>
             <th scope="col">Mã</th>
             <th scope="col">Tên</th>
+            <th scope="col">Chi phí</th>
             <th scope="col">Diễn giải</th>
             <th scope="col">Trạng thái</th>
             <th scope="col">Ngày tạo</th>
@@ -26,6 +32,7 @@ Danh sách phương thức vận chuyển
         <tr>
             <td scope="row" class="align-middle">{{$vanchuyen->vc_ma}}</td>
             <td class="align-middle">{{$vanchuyen->vc_ten}}</td>
+            <td class="align-middle">{{$vanchuyen->vc_chiphi}}</td>
             <td class="align-middle">{{$vanchuyen->vc_diengiai}}</td>
             <td class="align-middle">
                 @if($vanchuyen->vc_trangthai == 1)
@@ -41,8 +48,8 @@ Danh sách phương thức vận chuyển
                 {{ $vanchuyen->vc_capnhat->format('d/m/yy') }}
             </td>
             <td class="align-middle">
-                <a href="{{ route('backend.loai.edit', ['id' => $vanchuyen->vc_ma]) }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-                <form class="fDelete btn p-0" method="POST" action="{{ route('backend.loai.destroy', ['id' => $vanchuyen->vc_ma]) }}" data-id="{{ $vanchuyen->vc_ma }}">
+                <a href="{{ route('backend.vanchuyen.edit', ['vanchuyen' => $vanchuyen->vc_ma]) }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                <form class="fDelete btn p-0" method="POST" action="{{ route('backend.vanchuyen.destroy', ['vanchuyen' => $vanchuyen->vc_ma]) }}" data-id="{{ $vanchuyen->vc_ma }}">
                     {{ csrf_field() }}
                     <input type="hidden" name="_method" value="DELETE" />
                     <button type="button" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Xóa"><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -71,7 +78,6 @@ Danh sách phương thức vận chuyển
                 cancelButtonText: 'Hủy bỏ'
             }).then((result) => {
                 if (result.isConfirmed) {
-
                     $.ajax({
                         type: $(this).attr('method'),
                         url: $(this).attr('action'),
@@ -81,7 +87,7 @@ Danh sách phương thức vận chuyển
                             _method: $(this).find('[name="_method"]').val()
                         },
                         success: function(data, textStatus, jqXHR) {
-                            location.href = "{{ route('backend.loai.index') }}";
+                            location.href = "{{ route('backend.vanchuyen.index') }}";
                         }
                     })
                 } else {
