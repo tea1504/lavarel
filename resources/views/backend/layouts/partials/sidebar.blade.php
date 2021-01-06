@@ -16,6 +16,9 @@
             <li class="nav-item">
                 <a href="{{route('backend.sanpham.index')}}">Sản phẩm</a>
             </li>
+            <li class="nav-item">
+                <a href="{{route('backend.donhang.index')}}">Đơn hàng</a>
+            </li>
         </ul>
     </div>
 </nav>

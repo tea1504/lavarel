@@ -43,6 +43,7 @@ Route::get('/admin/sanpham/print', 'Backend\SanPhamController@print')->name('bac
 Route::get('/admin/sanpham/excel', 'Backend\SanPhamController@excel')->name('backend.sanpham.excel');
 Route::resource('/admin/sanpham', 'Backend\SanPhamController', ['as' => 'backend']);
 
+Route::resource('/admin/donhang', 'Backend\DonHangController', ['as' => 'backend']);
 
 Auth::routes();
 
