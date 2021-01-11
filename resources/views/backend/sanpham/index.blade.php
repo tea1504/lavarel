@@ -1,4 +1,4 @@
-@extends('backend.layouts.master')
+@extends('backend.layouts.master2')
 @section('title')
 Danh sách sản phẩm
 @endsection
