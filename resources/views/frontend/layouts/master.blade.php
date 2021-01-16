@@ -2,9 +2,9 @@
 <html lang="en" ng-app="sunshineApp">
 
 <head>
-    <title>Home</title>
+    <title>@yield('title')</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1')}}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" type="image/png" href="{{asset('themes/cozastore/fonts/images/icons/favicon.png')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('themes/cozastore/vendor/bootstrap/css/bootstrap.min.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('themes/cozastore/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}" />
@@ -20,8 +20,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('themes/cozastore/vendor/perfect-scrollbar/perfect-scrollbar.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('themes/cozastore/css/util.css')}}" />
     <link rel="stylesheet" type="text/css" href="{{asset('themes/cozastore/css/main.css')}}" />
-    <!-- Các custom style của frontend -->
-    <link rel="stylesheet" href="{{ asset('themes/cozastore/css/custom-styles.css') }}">
     <!-- Các custom style dành riêng cho từng view -->
     @yield('custom-css')
 </head>
@@ -199,11 +197,11 @@
     </div>
 
     
-    <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-    <script src="vendor/animsition/js/animsition.min.js"></script>
-    <script src="vendor/bootstrap/js/popper.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="vendor/select2/select2.min.js"></script>
+    <script src="{{asset('themes/cozastore/vendor/jquery/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{asset('themes/cozastore/vendor/animsition/js/animsition.min.js')}}"></script>
+    <script src="{{asset('themes/cozastore/vendor/bootstrap/js/popper.js')}}"></script>
+    <script src="{{asset('themes/cozastore/vendor/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('themes/cozastore/vendor/select2/select2.min.js')}}"></script>
     <script>
         $(".js-select2").each(function() {
             $(this).select2({
@@ -213,18 +211,18 @@
         })
     </script>
     
-    <script src="vendor/daterangepicker/moment.min.js"></script>
-    <script src="vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="{{asset('themes/cozastore/vendor/daterangepicker/moment.min.js')}}"></script>
+    <script src="{{asset('themes/cozastore/vendor/daterangepicker/daterangepicker.js')}}"></script>
     
-    <script src="vendor/slick/slick.min.js"></script>
-    <script src="js/slick-custom.js"></script>
+    <script src="{{asset('themes/cozastore/vendor/slick/slick.min.js')}}"></script>
+    <script src="{{asset('themes/cozastore/js/slick-custom.js')}}"></script>
     
-    <script src="vendor/parallax100/parallax100.js"></script>
+    <script src="{{asset('themes/cozastore/vendor/parallax100/parallax100.js')}}"></script>
     <script>
         $('.parallax100').parallax100();
     </script>
     
-    <script src="vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+    <script src="{{asset('themes/cozastore/vendor/MagnificPopup/jquery.magnific-popup.min.js')}}"></script>
     <script>
         $('.gallery-lb').each(function() { // the containers for all your galleries
             $(this).magnificPopup({

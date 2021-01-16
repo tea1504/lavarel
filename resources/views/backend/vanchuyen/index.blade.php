@@ -48,7 +48,7 @@ Danh sách phương thức vận chuyển
                 {{ $vanchuyen->vc_capnhat->format('d/m/yy') }}
             </td>
             <td class="align-middle">
-                <a href="{{ route('backend.vanchuyen.edit', ['vanchuyen' => $vanchuyen->vc_ma]) }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                <a href="{{ route('backend.vanchuyen.edit', ['vanchuyen' => $vanchuyen->vc_ma]) }}" class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Sửa"><i class="fas fa-edit"></i></a>
                 <form class="fDelete btn p-0" method="POST" action="{{ route('backend.vanchuyen.destroy', ['vanchuyen' => $vanchuyen->vc_ma]) }}" data-id="{{ $vanchuyen->vc_ma }}">
                     {{ csrf_field() }}
                     <input type="hidden" name="_method" value="DELETE" />

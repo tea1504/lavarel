@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.layouts.master');
 });
 Route::get('/hello','ExampleController@hello')->name('example.hello');
 Route::get('/gioithieubanthan','ExampleController@gioithieu');
@@ -51,3 +51,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/laymatkhau', function(){
     return bcrypt("1");
 });
+Route::get('/lienhe', 'Frontend\FrontendController@contact')->name('frontend.lienhe');
+Route::post('/lienhe/goi-loi-nhan', 'Frontend\FrontendController@sendMailContactForm')->name('frontend.contact.sendMailContactForm');
