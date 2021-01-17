@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vn">
+<html lang="vn" ng-app="backendApp">
 
 <head>
     <meta charset="utf-8">
@@ -8,10 +8,10 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Font Awesome -->
-
     <link rel="stylesheet" href="{{ asset('themes/AdminLTE/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.3.0/css/flag-icon.min.css">
     <!-- Tempusdominus Bbootstrap 4 -->
     <link rel="stylesheet" href="{{ asset('themes/AdminLTE/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css') }}">
     <!-- iCheck -->
@@ -32,7 +32,7 @@
     @yield('custom-css')
 </head>
 
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed" ng-controller="bodyController">
     <div class="wrapper">
         @include('backend.layouts.par2.navbar')
 
@@ -104,6 +104,21 @@
     <script src="{{ asset('themes/AdminLTE/dist/js/pages/dashboard.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('themes/AdminLTE/dist/js/demo.js')}}"></script>
+    <script src="{{ asset('vendor/angularjs/angular.min.js') }}"></script>
+    <script src="{{ asset('vendor/ngCart/dist/ngCart.js') }}"></script>
+    <script>
+        // Khởi tạo ứng dụng AngularJS, sử dụng plugin ngCart
+        // Do Laravel và AngularJS đều sử dụng dấu `Double bracket` để render dữ liệu
+        // => để tránh bị xung đột cú pháp, ta sẽ đổi cú pháp render dữ liệu của AngularJS thành <% %>
+        var app = angular.module('backendApp', ['ngCart'],
+            function($interpolateProvider) {
+                $interpolateProvider.startSymbol('<%');
+                $interpolateProvider.endSymbol('%>');
+            });
+        app.controller('bodyController', function($scope){
+            $scope.language = true;
+        });
+    </script>
     <!-- Các custom script dành riêng cho từng view -->
     @yield('custom-scripts')
 </body>

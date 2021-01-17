@@ -11,18 +11,18 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.layouts.master');
-});
-Route::get('/hello','ExampleController@hello')->name('example.hello');
-Route::get('/gioithieubanthan','ExampleController@gioithieu');
+// Route::get('/', function () {
+//     return view('frontend.layouts.master');
+// });
+Route::get('/hello', 'ExampleController@hello')->name('example.hello');
+Route::get('/gioithieubanthan', 'ExampleController@gioithieu');
 Route::get('/hoc/php', 'ExampleController@php');
-Route::get('/hienthi','ExampleController@hienthi');
-Route::get('/dangnhap','ExampleController@dangnhap');
-Route::get('/test/Loai','LayDuLieuController@getLoai');
-Route::get('/test/VanChuyen','LayDuLieuController@getVanChuyen');
-Route::get('/test/SanPham','LayDuLieuController@getSanPham');
-Route::get('/test/ChucNangBackend',function(){
+Route::get('/hienthi', 'ExampleController@hienthi');
+Route::get('/dangnhap', 'ExampleController@dangnhap');
+Route::get('/test/Loai', 'LayDuLieuController@getLoai');
+Route::get('/test/VanChuyen', 'LayDuLieuController@getVanChuyen');
+Route::get('/test/SanPham', 'LayDuLieuController@getSanPham');
+Route::get('/test/ChucNangBackend', function () {
     return view('test.chucNangBackend');
 });
 Route::get('admin/loai', 'Backend\LoaiController@index')->name('backend.loai.index');
@@ -48,8 +48,17 @@ Route::resource('/admin/donhang', 'Backend\DonHangController', ['as' => 'backend
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/laymatkhau', function(){
+Route::get('/laymatkhau', function () {
     return bcrypt("1");
 });
 Route::get('/lienhe', 'Frontend\FrontendController@contact')->name('frontend.lienhe');
 Route::post('/lienhe/goi-loi-nhan', 'Frontend\FrontendController@sendMailContactForm')->name('frontend.contact.sendMailContactForm');
+Route::get('/', 'Frontend\FrontendController@index')->name('frontend.home');
+Route::get('setLocale/{locale}', function ($locale) {
+    if (in_array($locale, Config::get('app.locales'))) {
+        Session::put('locale', $locale);
+    }
+    return redirect()->back();
+})->name('app.setLocale');
+Route::get('/admin/baocao/donhang', 'Admin\BaoCaoController@donhang')->name('backend.baocao.donhang');
+Route::get('/admin/baocao/donhang/data', 'Admin\BaoCaoController@donhangData')->name('backend.baocao.donhang.data');

@@ -25,7 +25,7 @@ class SanPhamTableSeeder extends Seeder
                 'sp_taoMoi'                 => $today->format('Y-m-d H:i:s'),
                 'sp_capNhat'                => $today->format('Y-m-d H:i:s'),
                 'sp_trangThai'              => $faker->numberBetween(1, 2),
-                'l_ma'                      => $faker->numberBetween(1, 9)
+                'l_ma'                      => $faker->numberBetween(1, 7)
                 ]
             );
         }

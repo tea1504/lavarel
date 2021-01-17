@@ -113,6 +113,16 @@
             </div>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="{{ route('app.setLocale', ['locale' => 'vi']) }}">
+                <i class="flag-icon flag-icon-vn"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ route('app.setLocale', ['locale' => 'en']) }}">
+                <i class="flag-icon flag-icon-us"></i>
+            </a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
                 <i class="fas fa-th-large"></i>
             </a>

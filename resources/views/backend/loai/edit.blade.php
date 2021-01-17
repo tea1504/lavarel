@@ -1,4 +1,4 @@
-@extends('backend.layouts.master')
+@extends('backend.layouts.master3')
 @section('title')
 Chỉnh sửa loại sản phẩm
 @endsection
