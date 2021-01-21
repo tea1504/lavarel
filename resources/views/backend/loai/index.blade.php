@@ -14,7 +14,7 @@ Danh sách loại sản phẩm
     <a href="{{ route('backend.loai.excel') }}" class="btn btn-primary">Xuất Excel</a>
     <a href="{{ route('backend.loai.pdf') }}" class="btn btn-primary">Xuất PDF</a>
 </div>
-<table class="table table-hover shadow-lg table-striped">
+<table class="table table-hover shadow-lg">
     <thead class="thead-light">
         <tr>
             <th scope="col">Mã</th>
@@ -27,7 +27,7 @@ Danh sách loại sản phẩm
     </thead>
     <tbody>
         @foreach($dsLoai as $loai)
-        <tr>
+        <tr data-tableid="table_{{$loop->index}}" class="tb">
             <td scope="row" class="align-middle">{{$loai->l_ma}}</td>
             <td class="align-middle">{{$loai->l_ten}}</td>
             <td class="align-middle">
@@ -52,6 +52,28 @@ Danh sách loại sản phẩm
                 </form>
             </td>
         </tr>
+        <tr id="table_{{$loop->index}}" style="display: none;" class="p-0 subtb">
+            <td colspan="6">
+                <table class="w-100 table-striped m-0">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Tên sản phẩm</th>
+                            <th class="text-right">Giá</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($loai->danhSachSanPham as $sp)
+                        <tr>
+                            <td>{{ $loop->index + 1 }}</td>
+                            <td>{{ $sp->sp_ten }}</td>
+                            <td class="text-right">{{ number_format($sp->sp_giaGoc) }}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </td>
+        </tr>
         @endforeach
     </tbody>
 </table>
@@ -60,7 +82,15 @@ Danh sách loại sản phẩm
 @section('custom-scripts')
 <script>
     $(document).ready(function() {
-
+        $('.tb').click(function(e){
+            $('.subtb').hide()
+            var id = '#' + $(this).data('tableid');
+            console.log(id);
+            $(id).show();
+        })
+        $('.subtb thead').click(function(e){
+            $('.subtb').hide();
+        })
         $('.fDelete').click(function(e) {
             e.preventDefault();
             Swal.fire({

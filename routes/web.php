@@ -62,3 +62,7 @@ Route::get('setLocale/{locale}', function ($locale) {
 })->name('app.setLocale');
 Route::get('/admin/baocao/donhang', 'Admin\BaoCaoController@donhang')->name('backend.baocao.donhang');
 Route::get('/admin/baocao/donhang/data', 'Admin\BaoCaoController@donhangData')->name('backend.baocao.donhang.data');
+Route::get('/admin/baocao/loai/data', 'Admin\BaoCaoController@loaiData')->name('backend.baocao.loai.data');
+Route::get('/admin/baocao/loai/datachar', 'Admin\BaoCaoController@loaiDataChar')->name('backend.baocao.loai.datachar');
+Route::get('/admin/baocao/loai/datachar2', 'Admin\BaoCaoController@loaiDataChar2')->name('backend.baocao.loai.datachar2');
+Route::get('/admin/baocao/loai/datachar3', 'Admin\BaoCaoController@loaiDataChar3')->name('backend.baocao.loai.datachar3');
