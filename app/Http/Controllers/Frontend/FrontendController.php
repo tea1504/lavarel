@@ -47,4 +47,8 @@ class FrontendController extends Controller
         $input = $request->all();
         Mail::to('tranvanhoa15042000@gmail.com')->send(new ContactMailer($input));
     }
+
+    function thongke(){
+        return view('frontend.thongke');
+    }
 }

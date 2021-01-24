@@ -66,3 +66,5 @@ Route::get('/admin/baocao/loai/data', 'Admin\BaoCaoController@loaiData')->name('
 Route::get('/admin/baocao/loai/datachar', 'Admin\BaoCaoController@loaiDataChar')->name('backend.baocao.loai.datachar');
 Route::get('/admin/baocao/loai/datachar2', 'Admin\BaoCaoController@loaiDataChar2')->name('backend.baocao.loai.datachar2');
 Route::get('/admin/baocao/loai/datachar3', 'Admin\BaoCaoController@loaiDataChar3')->name('backend.baocao.loai.datachar3');
+
+Route::get('/thongke', 'Frontend\FrontendController@thongke')->name('frontend.pages.thongke');

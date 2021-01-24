@@ -30,7 +30,7 @@ class BaoCaoController extends Controller
             'denNgay' => $request->denNgay
         ];
         $data = DB::select('
-            SELECT DATE(dh.dh_thoigiandathang) as thoiGian
+            SELECT dh.dh_thoigiandathang as thoiGian
                 , SUM(ctdh.ctdh_soluong * ctdh.ctdh_dongia) as tongThanhTien
             FROM cusc_don_hang dh
             JOIN cusc_chi_tiet_don_hang ctdh ON dh.dh_ma = ctdh.dh_ma

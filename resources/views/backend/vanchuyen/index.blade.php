@@ -59,6 +59,7 @@ Danh sách phương thức vận chuyển
         @endforeach
     </tbody>
 </table>
+{{$dsvanchuyen->links()}}
 @endsection
 
 @section('custom-scripts')

@@ -91,6 +91,7 @@ Danh sách đơn hàng
         @endforeach
     </tbody>
 </table>
+{{$dsdh->links()}}
 @endsection
 @section('custom-scripts')
 <script>

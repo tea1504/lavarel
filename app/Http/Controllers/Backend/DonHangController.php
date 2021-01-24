@@ -19,7 +19,7 @@ class DonHangController extends Controller
      */
     public function index()
     {
-        $dsdonhang = DonHang::all();
+        $dsdonhang = DonHang::paginate(5);
         return view('backend.donhang.index')
             ->with('dsdh',$dsdonhang);
     }

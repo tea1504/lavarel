@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\API\APIController;
 use Illuminate\Http\Request;
 
 /*
@@ -13,6 +14,9 @@ use Illuminate\Http\Request;
 |
 */
 
+
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
+Route::get('/thongke/top3_sanpham_moinhat', 'API\APIController@thongke_top3_sanpham_moinhat')->name('api.thongke.top3_sanpham_moinhat');
+Route::post('/sanpham/timkiem', 'API\APIController@tim_sp')->name('api.sanpham.timkiem');

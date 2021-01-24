@@ -18,7 +18,7 @@ class VanChuyenController extends Controller
      */
     public function index()
     {
-        $dsvanchuyen = VanChuyen::all();
+        $dsvanchuyen = VanChuyen::paginate(3);
         return view('backend.vanchuyen.index')
             ->with('dsvanchuyen', $dsvanchuyen);
     }
